@@ -1,10 +1,3 @@
-/*
- *
- *
- *
- *
- */
-
  let regex = {
    any_digit : '\\d',
    any_non_digit_char : '\\D',
@@ -14,7 +7,9 @@
    nums_0_to_9 : '[0-9]',
    alpha_numeric_range : '[A-Za-z0-9_]',
    any_alphanumeric : '\\w',
-   any_non_alphanumeric : '\\W'
+   any_non_alphanumeric : '\\W',
+   zero_or_more_repetitions : '*',
+   one_or_more_repetitions : '+'
  }
 
 for (x in regex) {
@@ -36,6 +31,14 @@ for (x in regex) {
  * use a similar expression to exclude specific characters, square brackets [] and the ^ hat
  *
  * regex : [^b]og will return 'hog' and 'dog', but avoid 'bog'
+ *
+ * match :
+ *    hog
+ *    dog
+ * skip :
+ *    bog
+ * solution :
+ *    [^b]og
  */
 
 /*
@@ -47,6 +50,17 @@ for (x in regex) {
  * and likewise, [^n-p] will only match any single character except for letters n to p
  *
  * multiple character ranges can also be used in the same set of brackets, along with individual characters. an example of this is the alphanumeric \w metacharacter which is equivalent to the character range [A-Za-z0-9_] and oten used to match characters in english text
+ *
+ * match :
+ *    Ana
+ *    Bob
+ *    Cpc
+ * skip :
+ *    aax
+ *    bby
+ *    ccz
+ * solution :
+ *    [A-C][n-p][a-c]
  */
 
 /*
@@ -60,4 +74,76 @@ for (x in regex) {
  * [wxy]{5} , match five characters, each of which can be a w, x, or y
  * .{2, 6}  , match between 2 and 6 of any character
  *
+ *
+ * match :
+ *    wazzzzzup
+ *    wazzzup
+ * skip :
+ *    wazup
+ *
+ * solution :
+ *    waz*up
+ *    waz{1,5}up
+ *
+ */
+
+/*
+ * zero-or-more-repetitions and one-or-more-repetitions
+ *
+ * zero or more : *
+ * one or more : +
+ */
+
+/*
+ * the optional character
+ * in regex, the question mark deontes optionality
+ *
+ * ?
+ *
+ * this metacharacter allows you to match wither zero or one of the preceding character group
+ *
+ * for example, the pattern ab?c will match both strings 'abc' and 'ac' because the b is considered optional
+ *
+ * in order to match a literal question mark, escape it \
+ * match the following :
+ * 	1 file found?
+ * 	2 files found?
+ * 	24 files found?
+ *
+ * solution : \d{1,2} files? found\?
+ */
+
+/*
+ * whitespace  
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+
+
+
+
+
+/*
+ * Practice Problems
+ *
+ * match :
+ *    aaaabcc
+ *    aabbbbc
+ *    aacc
+ * skip :
+ *    a
+ *
+ * solution : aa[abc]{1,5}
  */
