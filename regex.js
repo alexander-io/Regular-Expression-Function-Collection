@@ -48,3 +48,16 @@ for (x in regex) {
  *
  * multiple character ranges can also be used in the same set of brackets, along with individual characters. an example of this is the alphanumeric \w metacharacter which is equivalent to the character range [A-Za-z0-9_] and oten used to match characters in english text
  */
+
+/*
+ * repetition syntax
+ *
+ * if we want to match some number of an element... use repetition syntax
+ * for example, a{3} will match the 'a' character exactly three times. certain regex engines will even allow specification of a range for this repetition; such that a{1, 3} will match the character no more than 3 times, but no less than once
+ *
+ * examples :
+ * w{3}     , match three w's
+ * [wxy]{5} , match five characters, each of which can be a w, x, or y
+ * .{2, 6}  , match between 2 and 6 of any character
+ *
+ */
