@@ -1,5 +1,3 @@
-// regular expressions
-
 /*
  *
  *
@@ -12,7 +10,11 @@
    any_non_digit_char : '\\D',
    any_char : '.',
    period : '\\.',
-
+   chars_a_to_z : '[a-z]',
+   nums_0_to_9 : '[0-9]',
+   alpha_numeric_range : '[A-Za-z0-9_]',
+   any_alphanumeric : '\\w',
+   any_non_alphanumeric : '\\W'
  }
 
 for (x in regex) {
@@ -34,5 +36,15 @@ for (x in regex) {
  * use a similar expression to exclude specific characters, square brackets [] and the ^ hat
  *
  * regex : [^b]og will return 'hog' and 'dog', but avoid 'bog'
+ */
+
+/*
+ * character ranges
+ * when using square bracket notation, there is a shorthand for matching a range of sequential characters by using a dash '-'
  *
+ * for example, the patter [0-6] will only accept any single digit character from zero to six, and nothing else
+ *
+ * and likewise, [^n-p] will only match any single character except for letters n to p
+ *
+ * multiple character ranges can also be used in the same set of brackets, along with individual characters. an example of this is the alphanumeric \w metacharacter which is equivalent to the character range [A-Za-z0-9_] and oten used to match characters in english text
  */
